@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import data from './db.json';
-import { Menu, Dropdown, Card, Layout, Button, Row, Col, Icon } from 'antd';
-import MenuItem from 'antd/lib/menu/MenuItem';
+import { Card, Button, Row, Col } from 'antd';
 import { SearchOutlined, HeartOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 
