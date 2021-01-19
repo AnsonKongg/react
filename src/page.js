@@ -31,9 +31,6 @@ class Page extends Component {
         });
     }
     render() {
-        console.log(this.state.songs);
-        const style = { background: '#0092ff', padding: '8px 0' };
-
         return (
             <div style={{ flex: 1, flexDirection: "row" }}>
                 <Row>
