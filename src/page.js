@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import data from './db.json';
 import { Card, Button, Row, Col } from 'antd';
 import { SearchOutlined, HeartOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
+import { Grid, Typography } from '@material-ui/core';
 
 class Page extends Component {
     constructor(props) {
@@ -15,7 +15,7 @@ class Page extends Component {
     }
     componentDidMount() {
         this.setState({
-            songs: data.playlist,
+            // songs: data.playlist,
             // favorite: data.playlist
         });
     }
@@ -32,97 +32,19 @@ class Page extends Component {
     }
     render() {
         return (
-            <div style={{ flex: 1, flexDirection: "row" }}>
-                <Row>
-                    <Col span={8}>
-                        <header style={{ padding: 10, marginLeft: 50 }}>
-                            <h1>Playlist</h1>
-                        </header>
-                        <div style={{ width: 300 }}>
-                            {this.state.songs.length > 0 ? (
-                                <div>
-                                    {this.state.songs.map((value, index) => {
-                                        return (
-                                            <Card size="small" style={{ width: 300, }} key={index}>
-                                                <p>{value.artist}</p>
-                                                <p>{value.track}</p>
-                                                <div style={{ flex: 1, flexDirection: "row" }}>
-                                                    {value.listened ?
-                                                        <Button onClick={() => { this._addListen(value) }} icon={<SearchOutlined />}>
-                                                        </Button> :
-                                                        <Button style={{ color: 'green' }} onClick={() => { this._addListen(value) }} icon={<SearchOutlined />}>
-                                                        </Button>
-                                                    }
-                                                    {value.favourite ?
-                                                         <Button style={{ color: 'red', marginLeft: 10 }} onClick={() => this._addLove(value)} icon={<HeartOutlined />}>
-                                                         </Button> :
-                                                        <Button style={{ marginLeft: 10 }} onClick={() => { this._addListen(value) }} icon={<SearchOutlined />}>
-                                                        </Button>
-                                                    }
-                                                </div>
-                                            </Card>
-                                        );
-                                    })}
-                                </div>
-                            ) : (
-                                    <span></span>
-                                )
-                            }
-                        </div>
-                    </Col>
-                    <Col span={8}>
-                        <header style={{ padding: 10, marginLeft: 50 }}>
-                            <h1>Listened</h1>
-                        </header>
-                        <div style={{ width: 300 }}>
-                            {this.state.listen.length > 0 ? (
-                                <div>
-                                    {this.state.listen.map((value, index) => {
-                                        return (
-                                            <Card size="small" style={{ width: 300, }} key={index}>
-                                                <p>{value.artist}</p>
-                                                <p>{value.track}</p>
-                                                <div style={{ flex: 1, flexDirection: "row" }}>
-                                                    <Button icon={<SearchOutlined />} ></Button>
-                                                    <Button style={{ marginLeft: 10 }} icon={<HeartOutlined />}></Button>
-                                                </div>
-                                            </Card>
-                                        );
-                                    })}
-                                </div>
-                            ) : (
-                                    <span></span>
-                                )
-                            }
-                        </div>
-                    </Col>
-                    <Col>
-                        <div style={{ width: 300 }}>
-                            <header style={{ padding: 10, marginLeft: 50 }}>
-                                <h1>Favorite</h1>
-                            </header>
-                            {this.state.favorite.length > 0 ? (
-                                <div>
-                                    {this.state.favorite.map((value, index) => {
-                                        return (
-                                            <Card size="small" style={{ width: 300, }} key={index}>
-                                                <p>{value.artist}</p>
-                                                <p>{value.track}</p>
-                                                <div style={{ flex: 1, flexDirection: "row" }}>
-                                                    <Button icon={<SearchOutlined />}></Button>
-                                                    <Button type="primary" style={{ marginLeft: 10 }} icon={<HeartOutlined />}></Button>
-                                                </div>
-                                            </Card>
-                                        );
-                                    })}
-                                </div>
-                            ) : (
-                                    <span></span>
-                                )
-                            }
-                        </div>
-                    </Col>
-                </Row>
+            <div>
+                <Grid container spacing={2}>
+                    <Grid item xs={12} md={6}>
+                        <Typography variant="h6">
+                            Text only
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={12} md={6}>
+                        <Typography variant="h6">
+                            Icon with text
+                        </Typography>
+                    </Grid>
+                </Grid>
             </div>
         );
     }
